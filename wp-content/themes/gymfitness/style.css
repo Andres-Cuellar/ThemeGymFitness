@@ -1,0 +1,268 @@
+/*
+    Theme Name: GymFitnessLat
+    Theme URI: 
+    Author: Andrés Cuéllar Dev | Glump 
+    Author URI: https://cuellar.dev
+    Description: Theme designed for gym | GymFitness |
+    Version: 1.0
+    License: GNU General Public License v2 or later
+    License URI: http://www.gnu.org/licenses/gpl-2.0.html
+    Tags: Gym, gimnasio, flexbos, css grid, mobile first
+    Text Domain: gymfitness
+
+*/
+
+:root {
+  /** Fuentes **/
+
+  --primaryFont: "Staatliches", cursive;
+  --textFont: "Open Sans", sans-serif;
+  --secondaryFont: "Raleway", sans-serif;
+
+  /** Colores **/
+  --primaryColor: #ff5b00;
+  --secondaryColor: #2f2e2e;
+  --grayLigth: #ebebeb;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* Now 10px = 1rem! */
+}
+
+body {
+  font-size: 16px; /* px fallback */
+  font-size: 1.6rem; /* default font-size for document */
+  line-height: 2; /* a nice line-height */
+  font-family: var(--secondaryFont);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/** Headings **/
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--principalFont);
+  margin: 1rem 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4.8rem;
+}
+
+h3 {
+  font-size: 3.6rem;
+}
+
+h4 {
+  font-size: 2.4rem;
+}
+
+/** Globales **/
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.contenedor {
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto;
+}
+hr {
+  border: 1px solid var(--grayLigth);
+}
+
+/** Header **/
+
+.logo{
+  height: 150px;
+}
+
+
+.site-header {
+  background-color: var(--secondaryColor);
+  padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+/** Menu printipal**/
+
+.menu-principal {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .menu-principal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .menu-principal .menu {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .menu-principal li {
+    margin-right: 2rem;
+  }
+  .menu-principal li:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.menu-principal a {
+  font-family: var(--primaryFont);
+  color: var(--white);
+  font-size: 2.2rem;
+  padding: 0.5rem 2rem;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .menu-principal a {
+    font-size: 2.6rem;
+    position: relative;
+    z-index: 1;
+  }
+  .menu-principal a::before,
+  .menu-principal a::after {
+    position: absolute;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 50%;
+    background-color: var(--primaryColor);
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.6s;
+  }
+  .menu-principal a::before {
+    top: 0;
+    transform-origin: left;
+  }
+  .menu-principal a::after {
+    top: 50%;
+    transform-origin: right;
+  }
+  .menu-principal a:hover::before {
+    transform: scaleX(1);
+  }
+  .menu-principal a:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+.menu-principal .current_page_item {
+  border-bottom: 3px solid var(--primaryColor);
+}
+
+/** Reescribiendo menu movil**/
+.slicknav_menu {
+  background-color: var(--secondaryColor);
+}
+@media (min-width: 768px) {
+  .slicknav_menu {
+    display: none;
+  }
+}
+.slicknav_btn {
+  background-color: var(--primaryColor);
+}
+.slicknav_nav {
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: var(--primaryFont);
+}
+.slicknav_nav a:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+
+/** Footer **/
+
+.contenido-footer {
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .contenido-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.site-footer .menu-principal {
+  display: block;
+}
+
+
+.site-footer a {
+  color: var(--black);
+  text-align: center;
+  font-size: 2.4rem;
+}
+
+.menu-principal .current_page_item {
+  border: none;
+}
+
+@media (min-width: 768px){
+  .menu-principal .current_page_item {
+    border-bottom: 3px solid var(--primaryColor);
+  }
+}
+
+.site-footer .menu-principal a::before,
+.site-footer .menu-principal a::after {
+  display: none;
+}
+
+.copyright {
+  text-align: center;
+  font-family: var(--primaryFont);
+  font-size: 1.8rem;
+  margin: 2rem 0 0 0;
+}
+
+@media (min-width: 768px) {
+  .copyright {
+    font-size: 2.4rem;
+    margin: 0;
+  }
+}
